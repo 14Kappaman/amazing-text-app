@@ -1,0 +1,20 @@
+{
+  "name": "amazing-text",
+  "version": "1.0.0",
+  "description": "A text editor.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "Jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+"webpack": "5.70.0",
+"webpack-cli":"4.9.2",
+"html-webpack-plugin":"5.5.0",
+"css-loader": "6.7.1",
+"style-loader":"3.3.1",
+"jest":"27.5.1",
+"jquery":"3.6.0"
+  }
+}
