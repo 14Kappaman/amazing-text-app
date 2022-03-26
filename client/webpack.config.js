@@ -14,30 +14,34 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+    devtool: "source-map",
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
       
-    
+      new HtmlWebpackPlugin({
+        template: "./index.html"
+    }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, './src-sw.js'),
  swDest: 'src-sw.js',
 
       
     }),
-    new HtmlWebpackPlugin({
-      template: "./index.html"
-  }),
+    
       new WebpackPwaManifest({
       name: 'My Progressive Web App',
       inject: true,
-
+      includeDirectory: true,
+      start_url: "/",
+      fingerprints: false,
+publicPath: "/",
       short_name: 'MyPWA',
       description: 'My awesome Progressive Web App!',
       background_color: '#ffffff',
-      crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      
       icons: [
         {
           src: path.resolve('src/images/logo.png'),
@@ -60,9 +64,24 @@ module.exports = () => {
         {
           use: ['style-loader', 'css-loader'],
           test: /\.css$/
-      }
+      },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use:{
 
+            loader: "babel-loader",
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
+            }
+
+          }
+        }
       ],
+      
     },
+    
   };
+
 };
