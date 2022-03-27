@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "npm run dev --prefix ./client",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "npm start --prefix ./client",
     "server": "npm run server --prefix ./server",
     "build": "npm run build --prefix ./client",
