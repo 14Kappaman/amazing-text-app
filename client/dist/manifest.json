@@ -31,11 +31,11 @@
       "type": "image/png"
     }
   ],
-  "name": "My Progressive Web App",
+  "name": "Amazing Text",
   "short_name": "MyPWA",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "/",
-  "description": "My awesome Progressive Web App!",
+  "description": "My awesome Progressive Web App that writes text that has never been this amazing!",
   "background_color": "#ffffff"
 }

@@ -32,14 +32,14 @@ module.exports = () => {
     }),
     
       new WebpackPwaManifest({
-      name: 'My Progressive Web App',
+      name: 'Amazing Text',
       inject: true,
       includeDirectory: true,
       start_url: "/",
       fingerprints: false,
 publicPath: "/",
       short_name: 'MyPWA',
-      description: 'My awesome Progressive Web App!',
+      description: 'My awesome Progressive Web App that has never written text this amazing!',
       background_color: '#ffffff',
       
       icons: [
