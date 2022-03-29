@@ -7,7 +7,7 @@
 
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-    "start": "npm start --prefix ./client",
+    "start": "npm run server --prefix ./server",
     "server": "npm run server --prefix ./server",
     "build": "npm run build --prefix ./client",
     "install": "npm install --prefix ./client && npm install --prefix ./server",
