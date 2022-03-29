@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "heroku-run-build-script": false,
+
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
     "start": "npm start --prefix ./client",
