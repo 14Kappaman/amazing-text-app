@@ -74,17 +74,18 @@ var putDb = /*#__PURE__*/function () {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
+            console.log('Adding to database');
+            _context2.next = 3;
             return (0,idb__WEBPACK_IMPORTED_MODULE_2__.openDB)("jate", 1);
 
-          case 2:
+          case 3:
             db = _context2.sent;
-            console.log(db);
-            transaction = db.transaction(["jate"], "readwrite");
+            transaction = db.transaction("jate", "readwrite");
             objStore = transaction.objectStore("jate");
             objStore.add(content);
+            return _context2.abrupt("return");
 
-          case 7:
+          case 8:
           case "end":
             return _context2.stop();
         }
@@ -110,16 +111,22 @@ var getDb = /*#__PURE__*/function () {
           case 2:
             db = _context3.sent;
             console.log(db);
-            transaction = db.transaction(["jate"], "readwrite");
+            console.log("test");
+            transaction = db.transaction("jate", "readonly");
             objStore = transaction.objectStore("jate");
-            _context3.next = 8;
+            _context3.next = 9;
             return objStore.getAll();
 
-          case 8:
+          case 9:
+            _context3.next = 11;
+            return _context3.sent.join(" ");
+
+          case 11:
             data = _context3.sent;
+            console.log(data);
             return _context3.abrupt("return", data);
 
-          case 10:
+          case 14:
           case "end":
             return _context3.stop();
         }
@@ -182,6 +189,7 @@ var _default = /*#__PURE__*/(0,_babel_runtime_helpers_createClass__WEBPACK_IMPOR
 
   (0,_database__WEBPACK_IMPORTED_MODULE_2__.getDb)().then(function (data) {
     console.info('Loaded data from IndexedDB, injecting into editor');
+    console.log(data);
 
     _this.editor.setValue(data || localData || _header__WEBPACK_IMPORTED_MODULE_3__.header);
   });
